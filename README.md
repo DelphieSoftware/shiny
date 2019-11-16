@@ -1,5 +1,6 @@
 # RStudio Shiny Server "ShinyR" on centos7 and openshift
 
+**Warning: _This image was made for use with OpenShift, it may not work outside that platform without modifications._**
 ```
 docker build -t shiny:latest .
 # openshift uses a random user id for addtional security which we simulate here
@@ -21,9 +22,9 @@ To deploy to openshift edit the openshift.json and edit the following line to be
 "dockerImageRepository": "delphie/shiny`
 ```
 
-and edit the tag `20160811_1631` in the following line to be that tag you pushed: 
+and edit the tag `20191116_0712` in the following line to be that tag you pushed: 
 
 ```
- "name": "shiny-centos7:20160811_1631"
+ "name": "shiny-centos7:20191116_0712"
 ```
 

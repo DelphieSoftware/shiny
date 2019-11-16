@@ -68,7 +68,7 @@
         "creationTimestamp": null
       },
       "spec": {
-        "dockerImageRepository": "simonmassey/shiny"
+        "dockerImageRepository": "delphie/shiny"
       },
       "status": {
         "dockerImageRepository": ""
@@ -121,7 +121,7 @@
               ],
               "from": {
                 "kind": "ImageStreamTag",
-                "name": "shiny-centos7:20160811_1631"
+                "name": "shiny-centos7:latest"
               }
             }
           }

@@ -18,7 +18,7 @@ docker push username:deploytag
 To deploy to openshift edit the openshift.json and edit the following line to be your docker hub repo:
 
 ```
-"dockerImageRepository": "simonmassey/shiny`
+"dockerImageRepository": "delphie/shiny`
 ```
 
 and edit the tag `20160811_1631` in the following line to be that tag you pushed: 
@@ -27,6 +27,3 @@ and edit the tag `20160811_1631` in the following line to be that tag you pushed
  "name": "shiny-centos7:20160811_1631"
 ```
 
-TODO: 
-
-[ ] setup a build pipline in either dockerhub or openshift to deploy automatically

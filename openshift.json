@@ -121,7 +121,7 @@
               ],
               "from": {
                 "kind": "ImageStreamTag",
-                "name": "shiny-centos7:latest"
+                "name": "shiny-centos7:20191116_0712"
               }
             }
           }

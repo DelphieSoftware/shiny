@@ -5,7 +5,7 @@ LABEL maintainer="Louis Delphie <louis@louisdelphie.com>"
 ### Install shiny as per instructions at:
 ### https://www.rstudio.com/products/shiny/download-server/
 RUN yum -y update && yum -y install epel-release wget && yum -y install R mariadb-libs mariadb-devel && yum clean all
-RUN su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RJDBC',  'vctrs', 'ggplot2', 'curl', 'xml2', 'httr', 'stringi', 'openssl', 'DT', 'shinydashboard', 'shinyBS', 'readxl', 'shinyjs', 'leaflet', 'reshape2', 'scales', 'RMariaDB', 'tibble'), repos='http://cran.rstudio.com/')\""
+RUN su - -c "R -e \"install.packages(c('lintr', 'roxygen2', 'shiny', 'rmarkdown', 'devtools', 'RJDBC',  'vctrs', 'ggplot2', 'curl', 'xml2', 'httr', 'stringi', 'openssl', 'DT', 'shinydashboard', 'shinyBS', 'readxl', 'shinyjs', 'leaflet', 'reshape2', 'scales', 'RMariaDB', 'tibble'), repos='http://cran.rstudio.com/')\""
 ENV R_SHINY_SERVER_VERSION 1.5.3.838
 RUN wget https://download3.rstudio.org/centos5.9/x86_64/shiny-server-${R_SHINY_SERVER_VERSION}-rh5-x86_64.rpm && \
   yum -y install --nogpgcheck shiny-server-${R_SHINY_SERVER_VERSION}-rh5-x86_64.rpm && yum clean all

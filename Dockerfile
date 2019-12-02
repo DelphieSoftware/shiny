@@ -6,8 +6,9 @@ LABEL maintainer="Louis Delphie <louis@louisdelphie.com>"
 ### https://www.rstudio.com/products/shiny/download-server/
 RUN yum -y update && yum -y install epel-release wget && yum -y install R mariadb-libs mariadb-devel && yum clean all
 RUN su - -c "R -e \"install.packages(c('lintr', 'roxygen2', 'shiny', 'rmarkdown', 'devtools', 'RJDBC',  'vctrs', 'ggplot2', 'curl', 'xml2', 'httr', 'stringi', 'openssl', 'DT', 'shinydashboard', 'shinyBS', 'readxl', 'shinyjs', 'leaflet', 'reshape2', 'scales', 'RMariaDB', 'tibble'), repos='http://cran.rstudio.com/')\""
-ENV R_SHINY_SERVER_VERSION 1.5.12.933
-RUN wget https://download3.rstudio.org/centos6.3/x86_64/shiny-server-${R_SHINY_SERVER_VERSION}-x86_64.rpm && \
+ENV R_SHINY_SERVER_VERSION 1.5.12.934
+
+RUN wget https://github.com/DelphieSoftware/shiny-server/releases/download/v${R_SHINY_SERVER_VERSION}-beta/shiny-server-${R_SHINY_SERVER_VERSION}-x86_64.rpm && \
   yum -y install --nogpgcheck shiny-server-${R_SHINY_SERVER_VERSION}-x86_64.rpm && yum clean all
 
 # custom config which users user 'default' set by openshift

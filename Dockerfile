@@ -35,7 +35,8 @@ RUN chmod -R u+x ${APP_ROOT}/bin && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
 
 RUN cd /opt/shiny-server && \
-    ./bin/npm i --package-lock-only
+    ./bin/npm i --package-lock-only && \
+    ./bin/npm audit
     
 # openshift best practice is to use a number not a name this is user shiny
 USER 998

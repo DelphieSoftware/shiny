@@ -6,9 +6,9 @@ LABEL maintainer="Louis Delphie <louis@louisdelphie.com>"
 ### https://www.rstudio.com/products/shiny/download-server/
 RUN yum -y update && yum -y install epel-release wget && yum -y install R mariadb-libs mariadb-devel && yum clean all
 RUN su - -c "R -e \"install.packages(c('lintr', 'roxygen2', 'shiny', 'rmarkdown', 'devtools', 'RJDBC',  'vctrs', 'ggplot2', 'curl', 'xml2', 'httr', 'stringi', 'openssl', 'DT', 'shinydashboard', 'shinyBS', 'readxl', 'shinyjs', 'leaflet', 'reshape2', 'scales', 'RMariaDB', 'tibble'), repos='http://cran.rstudio.com/')\""
-ENV R_SHINY_SERVER_VERSION 1.5.12.934
+ENV R_SHINY_SERVER_VERSION 1.5.12.933
 
-RUN wget https://github.com/DelphieSoftware/shiny-server/releases/download/v${R_SHINY_SERVER_VERSION}-beta/shiny-server-${R_SHINY_SERVER_VERSION}-x86_64.rpm && \
+RUN wget https://download3.rstudio.org/centos6.3/x86_64/shiny-server-${R_SHINY_SERVER_VERSION}-x86_64.rpm && \
   yum -y install --nogpgcheck shiny-server-${R_SHINY_SERVER_VERSION}-x86_64.rpm && yum clean all
 
 # custom config which users user 'default' set by openshift
@@ -36,7 +36,6 @@ RUN chmod -R u+x ${APP_ROOT}/bin && \
 
 # openshift best practice is to use a number not a name this is user shiny
 USER 998
-
 
 ### Wrapper to allow user name resolution openshift will actually use a random user number so you need group permissions
 ### https://github.com/RHsyseng/container-rhel-examples/blob/master/starter-arbitrary-uid/Dockerfile.centos7

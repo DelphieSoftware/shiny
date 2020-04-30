@@ -11,6 +11,8 @@ ENV R_SHINY_SERVER_VERSION 1.5.13.944
 RUN wget https://download3.rstudio.org/centos6.3/x86_64/shiny-server-${R_SHINY_SERVER_VERSION}-x86_64.rpm && \
   yum -y install --nogpgcheck shiny-server-${R_SHINY_SERVER_VERSION}-x86_64.rpm && yum clean all
 
+RUN yum -y update && yum clean all
+
 # custom config which users user 'default' set by openshift
 COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
 

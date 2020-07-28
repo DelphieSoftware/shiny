@@ -1,4 +1,4 @@
-FROM centos:centos7.7.1908
+FROM centos:latest
 LABEL maintainer="Louis Delphie <louis@louisdelphie.com>"
 
 
